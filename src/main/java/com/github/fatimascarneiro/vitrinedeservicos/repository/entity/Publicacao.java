@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(of="publicacaoKey")
 public class Publicacao {
 
-    private int publicacaoKey;
+    private Integer publicacaoKey;
 
     private String descricao;
 

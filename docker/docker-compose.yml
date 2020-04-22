@@ -1,0 +1,15 @@
+version: '3'
+volumes:
+  user-data:
+services:
+  db_user:
+    image: mysql:8.0
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: vitrine_db
+      MYSQL_USER: vitrine_user
+      MYSQL_PASSWORD: vitrine_pwd
+    ports:
+      - "3308:3306"
