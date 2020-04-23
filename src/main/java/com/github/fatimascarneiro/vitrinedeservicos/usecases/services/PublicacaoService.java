@@ -22,7 +22,7 @@ public class PublicacaoService {
 
     private void validarPublicacao(Publicacao publicacao) {
         if (publicacao == null) {
-            throw new IllegalArgumentException("Não é possível salvar uma publicação nula.");
+            throw new NullPointerException("Não é possível salvar uma publicação nula.");
         }
     }
 
