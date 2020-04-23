@@ -1,11 +1,11 @@
 package com.github.fatimascarneiro.vitrinedeservicos.repository.entity;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 @Builder
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(of="publicacaoKey")
 public class Publicacao {
 
