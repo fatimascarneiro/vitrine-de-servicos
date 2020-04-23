@@ -4,6 +4,8 @@ import com.github.fatimascarneiro.vitrinedeservicos.repository.entity.Publicacao
 import com.github.fatimascarneiro.vitrinedeservicos.usecases.repository.PublicacaoDataAccess;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Service
 public class PublicacaoService {
 
@@ -22,5 +24,9 @@ public class PublicacaoService {
         if (publicacao == null) {
             throw new IllegalArgumentException("Não é possível salvar uma publicação nula.");
         }
+    }
+
+    public Set<Publicacao> listarPublicacoes() {
+        return dataAccess.listarPublicacoes();
     }
 }

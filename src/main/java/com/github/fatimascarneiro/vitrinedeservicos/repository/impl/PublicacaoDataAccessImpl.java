@@ -7,6 +7,9 @@ import com.github.fatimascarneiro.vitrinedeservicos.usecases.repository.Publicac
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Set;
+import java.util.stream.Collectors;
+
 @Component
 public class PublicacaoDataAccessImpl implements PublicacaoDataAccess {
 
@@ -21,5 +24,13 @@ public class PublicacaoDataAccessImpl implements PublicacaoDataAccess {
     public Publicacao cadastrar(Publicacao publicacao) {
         PublicacaoDao dao = PublicacaoDao.fromEntity(publicacao);
         return repository.save(dao).toEntity();
+    }
+
+    @Override
+    public Set<Publicacao> listarPublicacoes() {
+        return repository.findAll()
+                .stream()
+                .map(PublicacaoDao::toEntity)
+                .collect(Collectors.toSet());
     }
 }
