@@ -29,4 +29,10 @@ public class PublicacaoService {
     public Set<Publicacao> listarPublicacoes() {
         return dataAccess.listarPublicacoes();
     }
+
+    public void validarDescricao(Publicacao publicacao) {
+        if (publicacao.getDescricao().equals("")) {
+            throw new IllegalArgumentException("Não é possível salvar uma publicação com descric.");
+        }
+    }
 }

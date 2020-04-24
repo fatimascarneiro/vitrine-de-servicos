@@ -52,6 +52,28 @@ class PublicacaoServiceTest {
         deveRetornarUmaListaComAsPublicacoesCadastradas();
     }
 
+    @Test
+    public void deveValidarSeADescricaoNaoEhVazia() {
+        dadoUmaPublicacaoComDescricaoVazia();
+        quandoValidarSeDescricaoNaoEhVazia();
+        deveRetornarUmaMensagemDeDescricaoInvalida();
+    }
+
+    private void deveRetornarUmaMensagemDeDescricaoInvalida() {
+        exception = assertThrows(IllegalArgumentException.class, () -> service.validarDescricao(publicacao));
+    }
+
+    private void quandoValidarSeDescricaoNaoEhVazia() {
+        when(publicacao.getDescricao()).thenReturn("");
+    }
+
+    private void dadoUmaPublicacaoComDescricaoVazia() {
+        publicacao.setDescricao("");
+        publicacao.setPublicacaoKey(2);
+        publicacao.setCidade("São Paulo");
+        publicacao.setEstado("SP");
+    }
+
     private void deveRetornarUmaListaComAsPublicacoesCadastradas() {
         assertEquals(publicacoes, service.listarPublicacoes());
     }
