@@ -8,4 +8,6 @@ public interface PublicacaoDataAccess {
     Publicacao cadastrar(Publicacao publicacao);
 
     Set<Publicacao> listarPublicacoes();
+
+    Set<Publicacao> listarPublicacoesPorEstado(String estado);
 }

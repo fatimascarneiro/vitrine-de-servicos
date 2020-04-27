@@ -33,4 +33,14 @@ public class PublicacaoDataAccessImpl implements PublicacaoDataAccess {
                 .map(PublicacaoDao::toEntity)
                 .collect(Collectors.toSet());
     }
+
+    @Override
+    public Set<Publicacao> listarPublicacoesPorEstado(String estado) {
+        return repository.findAll()
+                .stream()
+                .filter(publicacaoDao -> publicacaoDao.getEstado().equals(estado))
+                .map(PublicacaoDao::toEntity)
+                .collect(Collectors.toSet());
+    }
+
 }

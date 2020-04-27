@@ -35,4 +35,8 @@ public class PublicacaoService {
             throw new IllegalArgumentException("Não é possível salvar uma publicação com descric.");
         }
     }
+
+    public Set<Publicacao> listarPublicacoesPorEstado(String estado) {
+        return dataAccess.listarPublicacoesPorEstado(estado);
+    }
 }
