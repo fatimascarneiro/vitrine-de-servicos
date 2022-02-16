@@ -20,6 +20,10 @@ public class PublicacaoService {
         return dataAccess.cadastrar(publicacao);
     }
 
+    private void teste() {
+
+    }
+
     private void validarPublicacao(Publicacao publicacao) {
         if (publicacao == null) {
             throw new NullPointerException("Não é possível salvar uma publicação nula.");
